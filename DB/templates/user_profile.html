@@ -1,0 +1,23 @@
+<html>
+<head><title>INFO 257 workshop show data</title>
+</head>
+
+<body>
+	<table class="table">
+		<tr>
+			<th>Destination Name</th>
+			<th>Rating</th>
+			
+		</tr>
+			<!-- destination must match what we passed in index.py> .-->
+			{% for ui_row in destination %}
+		<tr>
+			<!-- here, rows must match keys of the dictionary> .--> 
+			<td>{{ui_row.Destination}}</td>
+			<td>{{ui_row.Rating}}</td>
+
+		</tr>
+			{% endfor %}
+	</table>
+</body>
+</html>
