@@ -16,6 +16,7 @@ Ensure to check “allow Access" on "private networks” if prompted by firewall
 2. In Mac Terminal or Windows Powershell navigate to Netflix4Travel github repo, and the docker folder containing the DockerFile. Then run: `docker build -t <image_name> .` 
 
 *Here, replace <image_name> with something understandable like netflix-mariaDB* 
+
 *(note the space before the period at the end)*  
 
 This builds a custom image (or installer) for MariaDB (see details inside the DockerFile)
