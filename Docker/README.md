@@ -38,8 +38,8 @@ This builds a custom image (or installer) for MariaDB (see details inside the Do
    *--restart: allow container to auto start when ever docker engine boots up (allows container to boot up when computer restarts)*  
 
 4. Now, from your terminal you can run:
-	docker stop <container-name>
-	docker start <container-name> 
+	`docker stop <container-name>`
+	`docker start <container-name>`
 	
 	(ie. you do not need to rebuild an image, or rerun the 'run' command)
 
