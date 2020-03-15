@@ -1,5 +1,5 @@
 # Get Latest MariaDB
-FROM mariadb:10.4.11
+FROM mariadb:latest
 # List all the packages that we want to install
 ENV PACKAGES openssh-server openssh-client
 # Install Packages
