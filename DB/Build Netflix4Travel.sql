@@ -1,4 +1,7 @@
-USE Test;
+DROP DATABASE IF EXISTS Netflix4Travel;
+CREATE DATABASE Netflix4Travel;
+
+USE Netflix4Travel;
 
 DROP TABLE IF EXISTS locations_table;
 CREATE TABLE locations_table (
@@ -8,7 +11,7 @@ CREATE TABLE locations_table (
 
     );
 
-LOAD DATA LOCAL INFILE 'C:/Users/lzeng/Documents/GitHub/Netflix4Travel/DB/locations_table.csv' INTO TABLE locations_table FIELDS TERMINATED BY ',' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE 'C:/Users/Lance/Documents/GitHub/Netflix4Travel/DB/locations_table.csv' INTO TABLE locations_table FIELDS TERMINATED BY ',' IGNORE 1 LINES;
 
 DROP TABLE IF EXISTS users_table;
 CREATE TABLE users_table (
@@ -18,7 +21,7 @@ CREATE TABLE users_table (
 
     );
 
-LOAD DATA LOCAL INFILE 'C:/Users/lzeng/Documents/GitHub/Netflix4Travel/DB/users_table.csv' INTO TABLE users_table FIELDS TERMINATED BY ',' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE 'C:/Users/Lance/Documents/GitHub/Netflix4Travel/DB/users_table.csv' INTO TABLE users_table FIELDS TERMINATED BY ',' IGNORE 1 LINES;
 
 DROP TABLE IF EXISTS ratings_table;
 CREATE TABLE ratings_table (
@@ -29,4 +32,4 @@ CREATE TABLE ratings_table (
 
     );
 
-LOAD DATA LOCAL INFILE 'C:/Users/lzeng/Documents/GitHub/Netflix4Travel/DB/ratings.csv' INTO TABLE ratings_table FIELDS TERMINATED BY ',' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE 'C:/Users/Lance/Documents/GitHub/Netflix4Travel/DB/ratings.csv' INTO TABLE ratings_table FIELDS TERMINATED BY ',' IGNORE 1 LINES;
