@@ -1,4 +1,4 @@
-# Creating a MariaDB Container Application
+# Creating a MariaDB Container Application!
 Note for Windows 10 Users: Run these commands in PowerShell
 
 Docker is a tool that packages programs that have a lot of dependencies (ie. a database application), into a container (a virtual machine running the bare minimum applications needed to run your program)
