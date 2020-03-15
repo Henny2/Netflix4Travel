@@ -1,0 +1,19 @@
+<html>
+<head><title>INFO 257 workshop show data</title>
+</head>
+
+<body>
+	<table class="table">
+		<tr>
+			<th>User ID</th>
+			<th>Username</th>
+		</tr>
+			{% for ui_row in users %}
+		<tr>
+			<td>{{ui_row.user_id}}</td>
+			<td>{{ui_row.username}}</td>
+		</tr>
+			{% endfor %}
+	</table>
+</body>
+</html>

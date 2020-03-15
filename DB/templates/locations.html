@@ -1,0 +1,19 @@
+<html>
+<head><title>Netflix4Travel - SF Locations</title>
+</head>
+
+<body>
+	<table class="table">
+		<tr>
+			<th>Location ID</th>
+			<th>Location Name</th>
+		</tr>
+			{% for ui_row in locations %}
+		<tr>
+			<td>{{ui_row.location_id}}</td>
+			<td>{{ui_row.location_name}}</td>
+		</tr>
+			{% endfor %}
+	</table>
+</body>
+</html>
