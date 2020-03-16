@@ -36,6 +36,32 @@ db = SQLAlchemy(app)
 def hello():
     return render_template("index.html")
 
+@app.route("/user_selection")
+def user_selection_display():
+
+    locations_list = []
+
+    #Pick six random locations to display:
+
+
+    locations = db.engine.execute("SELECT location_id, location_name FROM locations_table")
+    locations_df = pd.DataFrame(locations.fetchall())
+    locations_df.columns = ['location_id', 'location_name']
+
+    to_display_index = np.random.choice(locations_df.shape[0]-1, 6)
+
+    to_display = locations_df.iloc[to_display_index, 1]
+    
+    for row in to_display:
+        
+        #location_name = db.engine.execute("SELECT location_name FROM locations_table WHERE location_id = %s", row[1])
+        locations_dict = {}
+        locations_dict["location_name"] = row
+        locations_list.append(locations_dict)
+    
+    print(locations_list)
+    
+    return render_template("user_selection.html", locations = locations_list)
 
 @app.route("/user-profile", methods = ['POST', 'GET'])
 def display_user_profile():

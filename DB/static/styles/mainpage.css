@@ -1,0 +1,50 @@
+html, 
+
+    header .header-content {
+    position: relative;
+    width: 100%;
+    padding: 100px 15px 70px;
+    text-align: center;
+    }
+
+    header .header-content .header-content-inner h1 {
+        color: #E50914;
+        font-family: 'Lobster', cursive;
+        font-size: 100px;
+    }
+
+    header .header-content .header-content-inner p {
+        color: white;
+        text-align: center;
+        font-family: 'Nunito', sans-serif;
+        font-weight: bolder;
+        font-size: 50px;
+    }
+
+    a:link {
+    color: red;
+    }
+
+    .btn {
+    border-radius: 300px;
+    text-transform: uppercase;
+
+    }
+
+    .btn-primary {
+    border-color: #E50914;
+    color: white;
+    background-color: #E50914;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+
+    }
+
+    .btn-lg {
+    padding: 15px 30px;
+    }
+

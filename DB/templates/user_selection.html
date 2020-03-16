@@ -1,0 +1,71 @@
+<html>
+<head><title>User Selection</title>
+
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Nunito|Oswald&display=swap" rel="stylesheet">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/user_selection.css') }}">
+
+</head>
+
+<style>
+      body {
+      height: 100%;
+      width: 100%;
+      margin:0;
+      background-image: url('../../static/Front.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding:0;
+    }
+
+</style>
+
+
+<body>
+
+	<div class="row">
+        <div class="col-md-4 location">
+          <h2>{{ locations[0].location_name }}</h2>
+          <img src="../static/SF Photo.jpg">
+          <br><br>
+
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4 location">
+          <h2>{{ locations[1].location_name }}</h2>
+          <img src="../static/SF Photo.jpg">
+          <br><br>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+       </div>
+        <div class="col-md-4 location">
+          <h2>{{ locations[2].location_name }}</h2>
+          <img src="../static/SF Photo.jpg">
+          <br><br>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        </div>
+      </div>
+    <br>
+	<div class="row">
+        <div class="col-md-4 location">
+          <h2> {{locations[3].location_name }}</h2>
+          <img src="../static/SF Photo.jpg">
+          <br><br>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4 location">
+          <h2> {{locations[4].location_name}} </h2>
+          <img src="../static/SF Photo.jpg">
+          <br><br>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+       </div>
+        <div class="col-md-4 location">
+          <h2> {{locations[5].location_name}} </h2>
+          <img src="../static/SF Photo.jpg">
+          <br><br>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        </div>
+      </div>
+
+</body>
+</html>
