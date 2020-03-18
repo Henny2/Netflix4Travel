@@ -24,48 +24,56 @@
 
 <body>
 
-	<div class="row">
-        <div class="col-md-4 location">
-          <h2>{{ locations[0].location_name }}</h2>
-          <img src="../static/SF Photo.jpg">
-          <br><br>
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 location"> 
+    	<h1> Reed, choose 3 you like. <br> It will help us find destinations you’ll love. </h1>
+		<a href="/user_selection" class = "btn btn-primary btn-lg">Continue >>></a>
 
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-        <div class="col-md-4 location">
-          <h2>{{ locations[1].location_name }}</h2>
-          <img src="../static/SF Photo.jpg">
-          <br><br>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-       </div>
-        <div class="col-md-4 location">
-          <h2>{{ locations[2].location_name }}</h2>
-          <img src="../static/SF Photo.jpg">
-          <br><br>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-      </div>
-    <br>
-	<div class="row">
-        <div class="col-md-4 location">
-          <h2> {{locations[3].location_name }}</h2>
-          <img src="../static/SF Photo.jpg">
-          <br><br>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-        <div class="col-md-4 location">
-          <h2> {{locations[4].location_name}} </h2>
-          <img src="../static/SF Photo.jpg">
-          <br><br>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-       </div>
-        <div class="col-md-4 location">
-          <h2> {{locations[5].location_name}} </h2>
-          <img src="../static/SF Photo.jpg">
-          <br><br>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-      </div>
+		<div class="row">
+	        <div class="col-md-4 location">
+	          <h2>{{ locations[0].location_name }}</h2>
+	          <img src="../static/SF Photo.jpg">
+
+	        </div>
+	        <div class="col-md-4 location">
+	          <h2>{{ locations[1].location_name }}</h2>
+	          <img src="../static/SF Photo.jpg">
+
+	       </div>
+	        <div class="col-md-4 location">
+	          <h2>{{ locations[2].location_name }}</h2>
+	          <img src="../static/SF Photo.jpg">
+
+	        </div>
+	      </div>
+
+		<div class="row">
+	        <div class="col-md-4 location">
+	          <h2> {{locations[3].location_name }}</h2>
+	          <img src="../static/SF Photo.jpg">
+
+	        </div>
+	        <div class="col-md-4 location">
+	          <h2> {{locations[4].location_name}} </h2>
+	          <img src="../static/SF Photo.jpg">
+
+	       </div>
+	        <div class="col-md-4 location">
+	          <h2> {{locations[5].location_name}} </h2>
+	          <img src="../static/SF Photo.jpg">
+
+	        </div>
+	    </div>
+	</div>
+    <div class="col-sm-2 sidenav">
+    </div>
+  </div>
+</div>
+
+
 
 </body>
 </html>

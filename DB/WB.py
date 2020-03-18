@@ -4,6 +4,7 @@ from flask import Flask, request, jsonify, Response, render_template
 import json
 import mysql.connector
 from flask_sqlalchemy import SQLAlchemy
+from flask_bootstrap import Bootstrap
 #from flask_cors import CORS, cross_origin
 
 
@@ -29,6 +30,7 @@ connection_str = f'mysql+pymysql://{db_user}:{db_pwd}@{db_host}:{db_port}/{db_na
 print(connection_str)
 
 app = Flask(__name__)
+Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = connection_str
 db = SQLAlchemy(app)
 

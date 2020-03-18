@@ -1,46 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Netflix4Travel</title>
   
   
   <link href="https://fonts.googleapis.com/css?family=Lobster|Nunito|Oswald&display=swap" rel="stylesheet">
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}"> 
 
-<style>
-      body {
-      height: 100%;
-      width: 100%;
-      margin:0;
-      background-image: url('../../static/Front.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding:0;
-    }
 
-</style>
+    <style> 
+        /* Modify the background color */ 
+
+        .navbar-custom { 
+            background-color: #E50914; 
+        } 
+          
+    </style> 
+
 
 </head>
-
-  <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1>Netflix4Travel</h1>
-                <p>Unlimited travel Ideas and more</p>
-                <a href="/user_selection" class = "btn btn-primary btn-lg">Try Now</a>
-            </div>
-        </div>
-    </header>
-
-
-<!-- Buttons --> 
 <body>
+  <div class = 'wrapper .bg-cover'>
+    <nav class="navbar navbar-expand-sm navbar-custom">
+      <a class="navbar-brand" href="#">Netflix4Travel</a>
+      <!-- Links -->
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+
+    </nav>
+
+
+  <!-- Header --> 
+      <div class="container py-5">
+        <header class="text-center py-5">
+        <h1 id = "custom-header">Netflix4Travel</h1>
+        <p id = "custom-flavor-text" class="lead mb-0">Unlimited travel Ideas and more</p>
+        <br>
+        <a href="/user_selection" class = "btn btn-primary btn-lg" id = 'btn-custom'>Try Now</a>
+        </header>
+      </div>
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+<!-- Buttons -->
+
 
  <br>
  
@@ -54,7 +69,7 @@
  <br>
  
  <form method="POST" action="/locations">
-    <!-- Update -->
+     Update 
    <div class="form-group">
      <input type="submit" value="List Locations" />
    </div>
@@ -68,8 +83,10 @@
 </form>
 
  <br>
+--> 
  
- 
+
+
 </body>
 
 </html>
