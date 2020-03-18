@@ -2,58 +2,35 @@
 <head><title>User Selection</title>
 
 
-	<link href="https://fonts.googleapis.com/css?family=Lobster|Nunito|Oswald&display=swap" rel="stylesheet">
-	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
-	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+    <link rel='stylesheet' href = "../static/styles/bootstrap.min.css">
+    <link rel='stylesheet' href = "../static/styles/test.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Nunito|Oswald&display=swap" rel="stylesheet">
 
 </head>
 
-	<script>
-		var select_locations = []
-		var index = 0
+ <title>Hello, world!</title>
 
-		function selectLocation(sender) {
-			if (select_locations.includes(sender.id)) {
-				index = select_locations.indexOf(sender.id);
-				select_locations.splice(index, 1);
-				alert(select_locations);
-			}
-			else {
-				select_locations.push(sender.id);
-				alert(select_locations);
-		   	}
-		}
-
-		function please_continue(){
-			if (select_locations.length < 3) {
-				alert("Please select at least 3 locations")
-			}
-			else {
-				alert("Please continue")
-				document.getElementById("hidden-list").value = select_locations;
-				document.getElementById("location-form").submit();
-			}
-
-		}
-	</script>
     <style> 
         /* Modify the background color */ 
 
-        .navbar-custom { 
+        .navbar-custom { x
             background-color: #E50914; 
         } 
           
     </style> 
+    <script>
+    	function fnChangeBorder(boxId)
 
+		{document.getElementByClass(boxId).style.border = "5px solid limegreen";}	
 
+    </script>
 
-<body>
-
- <body>
+  </head>
+  <body>
 
     <div class = 'wrapper'>
     	<nav class="navbar navbar-expand-sm navbar-custom">
-        	<a class="navbar-brand" href="/">Netflix4Travel</a>
+        	<a class="navbar-brand" href="#">Netflix4Travel</a>
       <!-- Links -->
 
           <ul class="navbar-nav ml-auto">
@@ -67,26 +44,26 @@
     	<div class='container-fluid' id = 'empty-top'><br><br><br>	
     	    <div class="container py-3 selection-table">
 	    	<h1> Reed, choose 3 you like. <br> It will help us find destinations you’ll love. </h1>
-	    	<form id = "location-form" action = "/recommendation"> 
-	    		<input type='hidden' id= 'hidden-list' name = 'hidden-list' value='' />
-	    		<button type="button" class="btn btn-primary"  id = 'btn-custom' value = '' onclick = "please_continue();">Continue >>></button>
+	    	<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" id = 'btn-custom'>Single toggle</button>
 			<!--<a href="file:///C:/Users/lzeng/Documents/GitHub/Netflix4Travel/DB/templates/Testing%20Page.html#" class = "btn btn-primary btn-lg" id = 'btn-custom'>Continue >>></a>-->
 			<br><br><br>
 			<div class = 'row'>
 
 				<div class="col-md-4 px-1 location-image">
 		          <h2>{{ locations[0].location_name }}</h2>
-		          <img src="../static/SF Photo.jpg" id = "{{ locations[0].location_name }}" onclick = "selectLocation(this);" />
+		          <img src="../static/SF Photo.jpg">
 				</div>
+
+
 
 		        <div class="col-md-4 px-1 location-image">
 		          <h2>{{ locations[1].location_name }}</h2>
-		          <img src="../static/SF Photo.jpg" id = "{{ locations[1].location_name }}" onclick = "selectLocation(this);" />
+		          <img src="../static/SF Photo.jpg">
 		       </div>
 
 		        <div class="col-md-4 px-1 location-image">
 		          <h2>{{ locations[2].location_name }}</h2>
-		          <img src="../static/SF Photo.jpg" id = "{{ locations[2].location_name }}" onclick = "selectLocation(this);" />
+		          <img src="../static/SF Photo.jpg">
 		        </div>
 		    </div>
 
@@ -96,17 +73,17 @@
 
 				<div class="col-md-4 px-1 location-image">
 		          <h2>{{ locations[3].location_name }}</h2>
-		          <img src="../static/SF Photo.jpg" id = "{{ locations[3].location_name }}" onclick = "selectLocation(this);" />
+		          <img src="../static/SF Photo.jpg">
 				</div>
 
 		        <div class="col-md-4 px-1 location-image">
 		          <h2>{{ locations[4].location_name }}</h2>
-		          <img src="../static/SF Photo.jpg" id = "{{ locations[4].location_name }}" onclick = "selectLocation(this);" />
+		          <img src="../static/SF Photo.jpg">
 		       </div>
 
 		        <div class="col-md-4 px-1 location-image">
 		          <h2>{{ locations[5].location_name }}</h2>
-		          <img src="../static/SF Photo.jpg" id = "{{ locations[5].location_name }}" onclick = "selectLocation(this);" />
+		          <img src="../static/SF Photo.jpg">
 		        </div>
 			</div>
 		</div>
@@ -116,3 +93,41 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+<!--
+	   <div id = 'selection-table' class="container py-5">
+	        <div class="col-md-2 location">
+	          <h2>{{ locations[0].location_name }}</h2>
+	          <img src="../static/SF Photo.jpg">
+
+	        </div>
+	        <div class="col-md-2 location">
+	          <h2>{{ locations[1].location_name }}</h2>
+	          <img src="../static/SF Photo.jpg">
+
+	       </div>
+	        <div class="col-md-2 location">
+	          <h2>{{ locations[2].location_name }}</h2>
+	          <img src="../static/SF Photo.jpg">
+
+	        </div>
+	      </div>
+
+		<div class="row">
+	        <div class="col-md-4 location">
+	          <h2> {{locations[3].location_name }}</h2>
+	          <img src="../static/SF Photo.jpg">
+
+	        </div>
+	        <div class="col-md-4 location">
+	          <h2> {{locations[4].location_name}} </h2>
+	          <img src="../static/SF Photo.jpg">
+
+	       </div>
+	        <div class="col-md-4 location">
+	          <h2> {{locations[5].location_name}} </h2>
+	          <img src="../static/SF Photo.jpg">
+
+	        </div>
+	    </div>

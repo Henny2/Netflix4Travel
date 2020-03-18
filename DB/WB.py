@@ -5,6 +5,7 @@ import json
 import mysql.connector
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
+from flask_wtf import FlaskForm
 #from flask_cors import CORS, cross_origin
 
 
@@ -29,8 +30,9 @@ db_name = config.get('database')
 connection_str = f'mysql+pymysql://{db_user}:{db_pwd}@{db_host}:{db_port}/{db_name}'
 print(connection_str)
 
+
+
 app = Flask(__name__)
-Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = connection_str
 db = SQLAlchemy(app)
 
@@ -45,12 +47,11 @@ def user_selection_display():
 
     #Pick six random locations to display:
 
-
     locations = db.engine.execute("SELECT location_id, location_name FROM locations_table")
     locations_df = pd.DataFrame(locations.fetchall())
     locations_df.columns = ['location_id', 'location_name']
 
-    to_display_index = np.random.choice(locations_df.shape[0]-1, 6)
+    to_display_index = np.random.choice(locations_df.shape[0]-1, 6, replace = False)
 
     to_display = locations_df.iloc[to_display_index, 1]
     
@@ -64,6 +65,25 @@ def user_selection_display():
     print(locations_list)
     
     return render_template("user_selection.html", locations = locations_list)
+
+@app.route("/recommendation")
+def show_recommendation():
+    #request.args.get extracts the data posted by the <input> tag with name = 'arg'
+    input_id = request.args.get('hidden-list')
+    print(input_id)
+    
+    return render_template('index.html')
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route("/user-profile", methods = ['POST', 'GET'])
 def display_user_profile():
