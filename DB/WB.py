@@ -6,7 +6,43 @@ import mysql.connector
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
+from joblib import dump, load 
+import re
+
 #from flask_cors import CORS, cross_origin
+
+#Load CF Model:
+clf = load('../CF-KNNBasic.joblib')
+test_username = 'Swimmy128'
+
+#CF Recommendation Setup Functions:
+def setup_user_ratings(username, locations):
+    
+    rating_table = [[username, loc] for loc in locations]
+    ratings_df = pd.DataFrame(rating_table)
+    ratings_df.columns = ['username', 'location']
+    
+    return ratings_df
+    
+def input_ratings(ratings_df, loc_ratings):
+    '''
+    loc_ratings: a list of location-rating in a DF
+    '''
+    joined_df = ratings_df.join(other = loc_ratings, on='location')
+    joined_df.fillna(0, inplace = True)
+    joined_df.columns = ['username', 'location', 'rating']
+
+    edit_location_name = joined_df['location'].apply(lambda x: re.sub('\r', '', x))
+    joined_df['location'] = edit_location_name
+
+    return joined_df
+    
+def get_model_input(ratings_df): 
+    
+    username = ratings_df['username']
+    
+    return ratings_df.apply(lambda x: (x['username'], x['location'], x['rating']), axis = 1)
+    
 
 
 # specify database configurations
@@ -70,14 +106,26 @@ def user_selection_display():
 def show_recommendation():
     #request.args.get extracts the data posted by the <input> tag with name = 'arg'
     input_id = request.args.get('hidden-list')
-    print(input_id)
-    
+    input_id = re.sub(r'\n','', input_id) #remove extra characters
+    input_id = input_id.split(',') #split locations:
+
+    new_rating = pd.Series([5]*len(input_id), index = input_id, name = 'new')
+
+    locations = db.engine.execute("SELECT location_name FROM locations_table")
+    locations_df = pd.DataFrame(locations.fetchall())
+    ratings_df = setup_user_ratings(test_username, locations_df.values.flatten())
+
+    updated_df = input_ratings(ratings_df, new_rating)
+
+    recommendation = pd.DataFrame(clf.test(get_model_input(updated_df)))
+    recommendation.sort_values(by = ['r_ui', 'est'], ascending = [True, False], inplace = True)
+    print(recommendation)
+
+    user_recommendations = recommendation['iid'][0:3]
+    print(user_recommendations)
+
+
     return render_template('index.html')
-
-
-
-
-
 
 
 
