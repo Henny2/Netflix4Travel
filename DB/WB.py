@@ -122,14 +122,11 @@ def show_recommendation():
     print(recommendation)
 
     user_recommendations = recommendation['iid'][0:3]
-    print(user_recommendations)
+    print(user_recommendations.iloc[0])
 
+    top_recommendation = user_recommendations.iloc[0]
 
-    return render_template('index.html')
-
-
-
-
+    return render_template('recommendation.html', recommended_loc = top_recommendation)
 
 
 
