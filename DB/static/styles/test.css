@@ -3,8 +3,8 @@ html,
     .wrapper {
         min-height: 100vh;
         margin:0;
-        background-image: url('../../static/Front.png');
-        background-size: cover;
+        /* background-image: url('../../static/Front.png');*/
+        background-size: cover; 
         padding:0;
     }
 

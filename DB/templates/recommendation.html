@@ -11,16 +11,23 @@
     <link rel='stylesheet' href = "../static/styles/test.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Nunito|Oswald&display=swap" rel="stylesheet">
 
-    <title>Hello, world!</title>
+    <title>Your Recommendation!</title>
 
         <style> 
         /* Modify the background color */ 
 
         .navbar-custom { 
             background-color: #E50914; 
+            
         } 
+        
+        .rec-background{
+            background-image: url("../static/{{ recommended_loc }}.jpg");
+        }
+
           
     </style> 
+        }
 
 
 
@@ -30,6 +37,7 @@
   <body>
 
     <div class = 'wrapper .bg-cover'>
+      <div class= "rec-background">
       <nav class="navbar navbar-expand-sm navbar-custom">
         <a class="navbar-brand" href="/">Netflix4Travel</a>
       <!-- Links -->
@@ -53,7 +61,7 @@
         but this is going on and on</p>
       </div>
 
-
+</div>
       </div>
     </div>
 
@@ -68,13 +76,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
-
-  
+ 
 =======
+
 <!doctype html>
+
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!-- Required meta tags --> 
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
