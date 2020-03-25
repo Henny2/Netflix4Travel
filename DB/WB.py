@@ -12,7 +12,16 @@ import re
 #from flask_cors import CORS, cross_origin
 
 #Load CF Model:
-clf = load('../CF-KNNBasic.joblib')
+
+'''
+
+Select model path based on OS
+
+'''
+# for windows:
+#clf = load('../CF-KNNBasic.joblib')
+# for mac: 
+clf = load('CF-KNNBasic.joblib')
 test_username = 'Swimmy128'
 
 #CF Recommendation Setup Functions:
@@ -50,7 +59,10 @@ config = {
     'host': 'localhost',
     'port': 3306,
     'user': 'root',
-    'password': 'mypass',
+    #lance
+    #'password': 'mypass',
+    #heqing
+    'password': '0421',
     'database': 'Netflix4Travel'
 }
 
