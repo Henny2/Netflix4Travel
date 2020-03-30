@@ -29,7 +29,7 @@
 				alert("Please select at least 3 locations")
 			}
 			else {
-				alert("Please continue")
+				alert("Please continue your selection")
 				document.getElementById("hidden-list").value = select_locations;
 				document.getElementById("location-form").submit();
 			}
@@ -66,7 +66,7 @@
 
     	<div class='container-fluid' id = 'empty-top'><br><br><br>	
     	    <div class="container py-3 selection-table">
-	    	<h1> Reed, choose 3 you like. <br> It will help us find destinations you’ll love. </h1>
+	    	<h1> Choose 3 places you like. <br> It will help us find destinations you’ll love. </h1>
 	    	<form id = "location-form" action = "/recommendation"> 
 	    		<input type='hidden' id= 'hidden-list' name = 'hidden-list' value='' />
 	    		<button type="button" class="btn btn-primary"  id = 'btn-custom' value = '' onclick = "please_continue();">Continue >>></button>

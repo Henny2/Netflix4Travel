@@ -22,7 +22,7 @@ Select model path based on OS
 #clf = load('../CF-KNNBasic.joblib')
 # for mac: 
 clf = load('CF-KNNBasic.joblib')
-test_username = 'Swimmy128'
+test_username = 'KissXX'
 
 #CF Recommendation Setup Functions:
 def setup_user_ratings(username, locations):
