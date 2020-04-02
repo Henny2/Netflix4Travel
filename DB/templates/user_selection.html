@@ -14,13 +14,13 @@
 
 		function selectLocation(sender) {
 			if (select_locations.includes(sender.id)) {
-				index = select_locations.indexOf(sender.id);
+				index = select_locations.indexOf(sender.id); 
 				select_locations.splice(index, 1);
-				alert(select_locations);
+				document.getElementById(sender.id).style.borderColor = "#E50914";
 			}
 			else {
 				select_locations.push(sender.id);
-				alert(select_locations);
+				document.getElementById(sender.id).style.borderColor = "limegreen";
 		   	}
 		}
 

@@ -60,6 +60,8 @@ html,
     .selection-table {
         border-radius: 25px;
         background-color: white;
+        padding-right: 40px;
+        padding-left: 40px;
     }
 
     .selection-table h1 {

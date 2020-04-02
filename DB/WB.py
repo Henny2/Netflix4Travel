@@ -19,9 +19,11 @@ Select model path based on OS
 
 '''
 # for windows:
-#clf = load('../CF-KNNBasic.joblib')
+clf = load('../CF-KNNBasic.joblib')
+neighbor_df = pd.read_csv('../neighbor_df.csv', index_col = 0)
 # for mac: 
-clf = load('CF-KNNBasic.joblib')
+#clf = load('CF-KNNBasic.joblib')
+
 test_username = 'KissXX'
 
 #CF Recommendation Setup Functions:
@@ -32,6 +34,19 @@ def setup_user_ratings(username, locations):
     ratings_df.columns = ['username', 'location']
     
     return ratings_df
+
+def closest_neighbor(df, x):
+    
+    closest = np.inf
+    neighbor = None
+    
+    for index, row in df.iterrows():
+        dist = np.linalg.norm(row.values[1:]-x)
+        if  dist < closest:
+            closest = dist
+            neighbor = row.Name
+    
+    return neighbor
     
 def input_ratings(ratings_df, loc_ratings):
     '''
@@ -62,7 +77,7 @@ config = {
     #lance
     #'password': 'mypass',
     #heqing
-    'password': '0421',
+    'password': 'mypass',
     'database': 'Netflix4Travel'
 }
 
@@ -110,7 +125,7 @@ def user_selection_display():
         locations_dict["location_name"] = row
         locations_list.append(locations_dict)
     
-    print(locations_list)
+    #print(locations_list)
     
     return render_template("user_selection.html", locations = locations_list)
 
@@ -120,25 +135,25 @@ def show_recommendation():
     input_id = request.args.get('hidden-list')
     input_id = re.sub(r'\n','', input_id) #remove extra characters
     input_id = input_id.split(',') #split locations:
-
-    new_rating = pd.Series([5]*len(input_id), index = input_id, name = 'new')
+    #print(input_id)
 
     locations = db.engine.execute("SELECT location_name FROM locations_table")
     locations_df = pd.DataFrame(locations.fetchall())
-    ratings_df = setup_user_ratings(test_username, locations_df.values.flatten())
+    #print(locations_df)
 
-    updated_df = input_ratings(ratings_df, new_rating)
+    user_input = locations_df.iloc[:, 0].apply(lambda x: 3.5 if x in input_id else 0)
+    print(user_input)
+    neighbor = closest_neighbor(neighbor_df, user_input)
+    print(neighbor)
 
-    recommendation = pd.DataFrame(clf.test(get_model_input(updated_df)))
-    recommendation.sort_values(by = ['r_ui', 'est'], ascending = [True, False], inplace = True)
-    print(recommendation)
+    recs = []
+    for item in neighbor_df.columns[1:]:
+        recs.append(clf.predict(neighbor, item))
 
-    user_recommendations = recommendation['iid'][0:3]
-    print(user_recommendations.iloc[0])
+    rec_df = pd.DataFrame(recs).sort_values(by='est', ascending=False)
+    recommendation = rec_df.iloc[0, :]['iid']
 
-    top_recommendation = user_recommendations.iloc[0]
-
-    return render_template('recommendation.html', recommended_loc = top_recommendation)
+    return render_template('recommendation.html', recommended_loc = recommendation)
 
 
 
@@ -180,7 +195,7 @@ def display_all_users():
     users = db.engine.execute("SELECT user_id, username FROM users_table")
     user_df = pd.DataFrame(users.fetchall())
     
-    print(user_df)
+    #print(user_df)
 
     for index, row in user_df.iterrows():
         #location_name = db.engine.execute("SELECT location_name FROM locations_table WHERE location_id = %s", row[1])
