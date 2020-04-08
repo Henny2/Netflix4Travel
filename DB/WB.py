@@ -19,10 +19,12 @@ Select model path based on OS
 
 '''
 # for windows:
-clf = load('../CF-KNNBasic.joblib')
-neighbor_df = pd.read_csv('../neighbor_df.csv', index_col = 0)
+#clf = load('../CF-KNNBasic.joblib')
+#neighbor_df = pd.read_csv('../neighbor_df.csv', index_col = 0)
 # for mac: 
-#clf = load('CF-KNNBasic.joblib')
+clf = load('CF-KNNBasic.joblib')
+neighbor_df = pd.read_csv('/Users/huangheqing/Google Drive (hhq@berkeley.edu)/IEOR 290/Netflix4Travel/neighbor_df.csv', index_col = 0)
+
 
 test_username = 'KissXX'
 
@@ -77,7 +79,7 @@ config = {
     #lance
     #'password': 'mypass',
     #heqing
-    'password': 'mypass',
+    'password': '0421',
     'database': 'Netflix4Travel'
 }
 
@@ -133,6 +135,8 @@ def user_selection_display():
 def show_recommendation():
     #request.args.get extracts the data posted by the <input> tag with name = 'arg'
     input_id = request.args.get('hidden-list')
+    #print("LOOK HERE!!!!!!")
+    #print(type(request))
     input_id = re.sub(r'\n','', input_id) #remove extra characters
     input_id = input_id.split(',') #split locations:
     #print(input_id)

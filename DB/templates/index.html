@@ -1,25 +1,44 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Netflix4Travel</title>
   
   
   <link href="https://fonts.googleapis.com/css?family=Lobster|Nunito|Oswald&display=swap" rel="stylesheet">
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}"> 
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+  <link rel= "stylesheet" type= "text/css" href= "../static/styles/mainpage.css"> 
+    
+
+<!-- Load Extra Style File -->
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/util.css') }}"> 
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
 
 
-    <style> 
-        /* Modify the background color */ 
 
-        .navbar-custom { 
-            background-color: #E50914; 
-        } 
-          
-    </style> 
 
 
 </head>
@@ -29,50 +48,82 @@
       <a class="navbar-brand" href="/">Netflix4Travel</a>
       <!-- Links -->
 
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-        </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
 
     </nav>
 
 
-  <!-- Header --> 
-      <div class="container py-5">
-        <header class="text-center py-5">
+    <!-- Header --> 
+    <div class="container py-5">
+      <header class="text-center py-5">
         <h1 id = "custom-header">Netflix4Travel</h1>
         <p id = "custom-flavor-text" class="lead mb-0">Unlimited travel Ideas and more</p>
         <br>
+        <!-- Input Name --> 
+
+
+        <div class="container-contact100">
+          <div class="wrap-contact100">
+            <form class="contact100-form validate-form">
+
+
+              <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+                <span class="label-input100">FULL NAME *</span>
+                <input class="input100" type="text" name="name" placeholder="Enter Your Name">
+              </div>
+
+              <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
+                <span class="label-input100">Email *</span>
+                <input class="input100" type="text" name="email" placeholder="Enter Your Email ">
+              </div>
+
+              <div class="wrap-input100 bg1 rs1-wrap-input100">
+                <span class="label-input100">Phone</span>
+                <input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+              </div>
+
+              <div class="container-contact100-form-btn">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Try Now --> 
+        <br>
+
         <a href="/user_selection" class = "btn btn-primary btn-lg" id = 'btn-custom'>Try Now</a>
-        </header>
-      </div>
+      </header>
     </div>
+  </div>
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 <!-- Buttons -->
 
 
- <br>
- 
- <form method="POST" action="/users">
+<br>
 
-   <div class="form-group">
-     <input type="submit" value="List Users" />
-   </div>
- </form>
- 
- <br>
- 
- <form method="POST" action="locations">
-   <div class="form-group">
-     <input type="submit" value="List Locations" />
-   </div>
- </form>
+<form method="POST" action="/users">
+
+ <div class="form-group">
+   <input type="submit" value="List Users" />
+ </div>
+</form>
+
+<br>
+
+<form method="POST" action="locations">
+ <div class="form-group">
+   <input type="submit" value="List Locations" />
+ </div>
+</form>
 
 
 <br>
@@ -81,11 +132,204 @@
   <input id="search" name="search" class="form-control" type="text" /><br />
 </form>
 
- <br>
+<br>
+
+<div class="container-contact100">
+  <div class="wrap-contact100">
+    <form class="contact100-form validate-form">
+      <span class="contact100-form-title">
+        Contact Us
+      </span>
+
+      <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+        <span class="label-input100">FULL NAME *</span>
+        <input class="input100" type="text" name="name" placeholder="Enter Your Name">
+      </div>
+
+      <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
+        <span class="label-input100">Email *</span>
+        <input class="input100" type="text" name="email" placeholder="Enter Your Email ">
+      </div>
+
+      <div class="wrap-input100 bg1 rs1-wrap-input100">
+        <span class="label-input100">Phone</span>
+        <input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+      </div>
 
 
 
-</body>
+      <div class="w-full dis-none js-show-service">
+        <div class="wrap-contact100-form-radio">
+          <span class="label-input100">What type of products do you sell?</span>
 
-</html>
+          <div class="contact100-form-radio m-t-15">
+            <input class="input-radio100" id="radio1" type="radio" name="type-product" value="physical" checked="checked">
+            <label class="label-radio100" for="radio1">
+              Phycical Products
+            </label>
+          </div>
 
+
+
+
+
+          <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
+            <span class="label-input100">Message</span>
+            <textarea class="input100" name="message" placeholder="Your message here..."></textarea>
+          </div>
+
+          <div class="container-contact100-form-btn">
+            <button class="contact100-form-btn">
+              <span>
+                Submit
+                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </body>
+
+  </html>
+
+<style> 
+    /* Modify the background color */ 
+
+    .navbar-custom { 
+      background-color: #E50914; 
+    } 
+    .container-contact100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  
+}
+
+.wrap-contact100 {
+  width: 920px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 62px 55px 90px 55px;
+}
+
+.contact100-form {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact100-form-title {
+  display: block;
+  width: 100%;
+  font-family: Montserrat-Black;
+  font-size: 39px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 59px;
+}
+
+
+.wrap-input100 {
+  width: 100%;
+  position: relative;
+  border: 1px solid #e6e6e6;
+  border-radius: 13px;
+  padding: 10px 30px 9px 22px;
+  margin-bottom: 20px;
+}
+
+.rs1-wrap-input100 {
+  width: calc((100% - 30px) / 2);
+}
+
+.label-input100 {
+  font-family: Montserrat-SemiBold;
+  font-size: 10px;
+  color: #393939;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.input100 {
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-family: Montserrat-SemiBold;
+  font-size: 18px;
+  color: #555555;
+  line-height: 1.2;
+  padding-right: 15px;
+}
+
+
+
+
+.contact100-form-title {
+  display: block;
+  width: 100%;
+  font-family: Montserrat-Black;
+  font-size: 39px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 59px;
+}
+
+
+
+.wrap-contact100 {
+  width: 920px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 62px 55px 90px 55px;
+}
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 768px) {
+  .rs1-wrap-input100 {
+    width: 100%;
+}
+
+}
+
+@media (max-width: 576px) {
+  .wrap-contact100 {
+    padding: 62px 15px 90px 15px;
+}
+
+.wrap-input100 {
+    padding: 10px 10px 9px 10px;
+}
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Utility ]*/
+
+.bg1 {background-color: #f7f7f7;}
+
+
+/*/////////////////test/////////////////////////////////////////////////
+
+
+
+
+
+  </style> 
