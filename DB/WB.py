@@ -105,7 +105,7 @@ db = SQLAlchemy(app)
 def hello():
     return render_template("index.html")
 
-@app.route("/user_selection")
+@app.route("/user_selection", methods = ['POST', 'GET'])
 def user_selection_display():
 
     locations_list = []
@@ -129,7 +129,16 @@ def user_selection_display():
     
     #print(locations_list)
     
-    return render_template("user_selection.html", locations = locations_list)
+    #get user name
+    if request.method == "POST":
+
+        user_name = request.form
+        print("THE NAME IS!!!")
+        print(user_name)
+        print(user_name['name'])
+
+
+    return render_template("user_selection.html", locations = locations_list, user_name = user_name)
 
 @app.route("/recommendation")
 def show_recommendation():

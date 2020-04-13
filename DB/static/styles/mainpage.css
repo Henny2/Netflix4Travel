@@ -117,7 +117,7 @@ html,
 /*--------------------------Below are contact form----------------------------------------*/
 .container-contact100 {
   width: 100%;  
-  min-height: 100vh;
+  min-height: 20vh;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -127,13 +127,11 @@ html,
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #e6e6e6;
   
 }
 
 .wrap-contact100 {
   width: 920px;
-  background: #fff;
   border-radius: 10px;
   overflow: hidden;
   padding: 62px 55px 90px 55px;
@@ -177,7 +175,7 @@ html,
 
 .label-input100 {
   font-family: Montserrat-SemiBold;
-  font-size: 100px;
+  font-size: 10px;
   color: #393939;
   line-height: 1.5;
   text-transform: uppercase;

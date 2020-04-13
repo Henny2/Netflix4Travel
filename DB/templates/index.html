@@ -11,37 +11,42 @@
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}"> 
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
-  <link rel= "stylesheet" type= "text/css" href= "../static/styles/mainpage.css"> 
-    
 
-<!-- Load Extra Style File -->
+
+  <!-- Load Extra Style File -->
 
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/util.css') }}"> 
-  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
 
-
-
-
+  <!--===========================================================================================-->
+  <script src="main.js"></script>
+  <script src="../static/style/vendor/jquery/jquery-3.2.1.min.js"></script>
 
 </head>
+
+<script type="text/javascript">
+
+  var user_name = '';
+
+  function submit_userinfo(){
+    alert("triggered")
+    user_name = document.getElementById("name").value ;
+    alert(user_name);
+
+    document.getElementById("user_form").submit();
+    
+
+    
+
+  }
+
+
+
+
+</script>
+
+
+
+
 <body>
   <div class = 'wrapper'>
     <nav class="navbar navbar-expand-sm navbar-custom">
@@ -68,34 +73,40 @@
 
         <div class="container-contact100">
           <div class="wrap-contact100">
-            <form class="contact100-form validate-form">
+            <form action = "/user_selection" method = "POST" id = "user_form" class="contact100-form validate-form">
 
 
               <div class="wrap-input100 lead validate-input bg1" data-validate="Please Type Your Name">
-                <span class="label-input100">FULL NAME *</span>
-                <input class="input100" type="text" name="name" placeholder="Enter Your Name">
+                <span class="label-input100">Your Name *</span>
+                <input class="input100" type="text" name="name" id="name"  placeholder="Enter Your Name" />
               </div>
 
               <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
                 <span class="label-input100">Email *</span>
-                <input class="input100" type="text" name="email" placeholder="Enter Your Email ">
+                <input class="input100" type="text" name="email" id ="email" placeholder="Enter Your Email ">
               </div>
 
               <div class="wrap-input100 bg1 rs1-wrap-input100">
                 <span class="label-input100">Phone</span>
-                <input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+                <input class="input100" type="text" name="phone" id="phone" placeholder="Enter Number Phone">
               </div>
 
               <div class="container-contact100-form-btn">
               </div>
-            </form>
+              
+            </div>
           </div>
-        </div>
 
-        <!-- Try Now --> 
-        <br>
+          <!-- Try Now --> 
+          <br>
 
-        <a href="/user_selection" class = "btn btn-primary btn-lg" id = 'btn-custom'>Try Now</a>
+          
+          <button  class = "btn btn-primary btn-lg" id = 'btn-custom' value = '' onclick="submit_userinfo();">
+            Try Now
+          </button>      
+        </form>
+
+
       </header>
     </div>
   </div>
@@ -143,17 +154,17 @@
 
       <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
         <span class="label-input100">FULL NAME *</span>
-        <input class="input100" type="text" name="name" placeholder="Enter Your Name">
+        <input class="input100" type="text" name="name" id='name' placeholder="Enter Your Name">
       </div>
 
       <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
         <span class="label-input100">Email *</span>
-        <input class="input100" type="text" name="email" placeholder="Enter Your Email ">
+        <input class="input100" type="text" name="email" id='email' placeholder="Enter Your Email ">
       </div>
 
       <div class="wrap-input100 bg1 rs1-wrap-input100">
         <span class="label-input100">Phone</span>
-        <input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+        <input class="input100" type="text" name="phone" id='phone' placeholder="Enter Number Phone">
       </div>
 
 
@@ -194,143 +205,13 @@
 
   </html>
 
-<style> 
+  <style> 
     /* Modify the background color */ 
 
     .navbar-custom { 
       background-color: #E50914; 
     } 
-    .container-contact100 {
-  width: 100%;  
-  min-height: 5vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  
-}
-
-.wrap-contact100 {
-  width: 920px;
-  border-radius: 10px;
-  overflow: hidden;
-  padding: 62px 55px 90px 55px;
-}
-
-.contact100-form {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.contact100-form-title {
-  display: block;
-  width: 100%;
-  font-family: Montserrat-Black;
-  font-size: 39px;
-  color: #ffffff;
-  line-height: 1.2;
-  text-align: center;
-  padding-bottom: 59px;
-}
-
-
-.wrap-input100 {
-  width: 100%;
-  position: relative;
-  border: 1px solid #e6e6e6;
-  border-radius: 13px;
-  padding: 10px 30px 9px 22px;
-  margin-bottom: 20px;
-}
-
-.rs1-wrap-input100 {
-  width: calc((100% - 30px) / 2);
-}
-
-.label-input100 {
-  font-size: 15px;
-  color: #ffffff;
-  line-height: 1.5;
-  text-transform: uppercase;
-  opacity: 1;
-
-}
-
-.input100 {
-  display: block;
-  width: 100%;
-  background: transparent;
-  font-size: 18px;
-  color: #555555;
-  line-height: 1.2;
-  padding-right: 15px;
-}
-
-
-
-
-.contact100-form-title {
-  display: block;
-  width: 100%;
-  font-size: 39px;
-
-  color: #333333;
-  line-height: 1.2;
-  text-align: center;
-  padding-bottom: 59px;
-}
-
-
-
-.wrap-contact100 {
-  width: 920px;
-  border-radius: 10px;
-  overflow: hidden;
-  padding: 62px 55px 10px 55px;
-}
-
-/*------------------------------------------------------------------
-[ Responsive ]*/
-
-@media (max-width: 768px) {
-  .rs1-wrap-input100 {
-    width: 100%;
-}
-
-}
-
-@media (max-width: 576px) {
-  .wrap-contact100 {
-    padding: 62px 15px 90px 15px;
-}
-
-.wrap-input100 {
-    padding: 10px 10px 9px 10px;
-    background-color: #ff0000;
-      
-}
-}
-
-/*//////////////////////////////////////////////////////////////////
-[ Utility ]*/
-
-.bg1 {background-color: #ff0000;
-opacity: 0.8;}
-
-
-/*/////////////////test/////////////////////////////////////////////////
-
+    
 
 
 

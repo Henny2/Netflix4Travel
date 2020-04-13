@@ -8,112 +8,113 @@
 
 </head>
 
-	<script>
-		var select_locations = []
-		var index = 0
+<script>
+	var select_locations = []
+	var index = 0
 
-		function selectLocation(sender) {
-			if (select_locations.includes(sender.id)) {
-				index = select_locations.indexOf(sender.id); 
-				select_locations.splice(index, 1);
-				document.getElementById(sender.id).style.borderColor = "#E50914";
-			}
-			else {
-				select_locations.push(sender.id);
-				document.getElementById(sender.id).style.borderColor = "limegreen";
-		   	}
+	function selectLocation(sender) {
+		if (select_locations.includes(sender.id)) {
+			index = select_locations.indexOf(sender.id); 
+			select_locations.splice(index, 1);
+			document.getElementById(sender.id).style.borderColor = "#E50914";
+		}
+		else {
+			select_locations.push(sender.id);
+			document.getElementById(sender.id).style.borderColor = "limegreen";
+		}
+	}
+
+	function please_continue(){
+		if (select_locations.length < 3) {
+			alert("Please select at least 3 locations")
+		}
+		else {
+			alert("Please continue your selection")
+			document.getElementById("hidden-list").value = select_locations;
+			document.getElementById("location-form").submit();
 		}
 
-		function please_continue(){
-			if (select_locations.length < 3) {
-				alert("Please select at least 3 locations")
-			}
-			else {
-				alert("Please continue your selection")
-				document.getElementById("hidden-list").value = select_locations;
-				document.getElementById("location-form").submit();
-			}
+	}
+</script>
+<style> 
+	/* Modify the background color */ 
 
-		}
-	</script>
-    <style> 
-        /* Modify the background color */ 
-
-        .navbar-custom { 
-            background-color: #E50914; 
-        } 
-          
-    </style> 
+	.navbar-custom { 
+		background-color: #E50914; 
+	} 
+	
+</style> 
 
 
 
 <body>
 
- <body>
+	<body>
 
-    <div class = 'wrapper'>
-    	<nav class="navbar navbar-expand-sm navbar-custom">
-        	<a class="navbar-brand" href="/">Netflix4Travel</a>
-      <!-- Links -->
+		<div class = 'wrapper'>
+			<nav class="navbar navbar-expand-sm navbar-custom">
+				<a class="navbar-brand" href="/">Netflix4Travel</a>
+				<!-- Links -->
 
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-          </ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">About</a>
+					</li>
+				</ul>
 
-      	</nav>
+			</nav>
 
-    	<div class='container-fluid' id = 'empty-top'><br><br><br>	
-    	    <div class="container py-3 selection-table">
-	    	<h1> Choose 3 places you like. <br> It will help us find destinations you’ll love. </h1>
-	    	<form id = "location-form" action = "/recommendation"> 
-	    		<input type='hidden' id= 'hidden-list' name = 'hidden-list' value='' />
-	    		<button type="button" class="btn btn-primary"  id = 'btn-custom' value = '' onclick = "please_continue();">Continue >>></button>
-			<!--<a href="file:///C:/Users/lzeng/Documents/GitHub/Netflix4Travel/DB/templates/Testing%20Page.html#" class = "btn btn-primary btn-lg" id = 'btn-custom'>Continue >>></a>-->
-			<br><br><br>
-			<div class = 'row'>
+			<div class='container-fluid' id = 'empty-top'><br><br><br>	
+				<div class="container py-3 selection-table">
+					<h1>hey {{name}} </h1>
+					<h1> Choose 3 places you like. <br> It will help us find destinations you’ll love. </h1>
+					<form id = "location-form" action = "/recommendation"> 
+						<input type='hidden' id= 'hidden-list' name = 'hidden-list' value='' />
+						<button type="button" class="btn btn-primary"  id = 'btn-custom' value = '' onclick = "please_continue();">Continue >>> </button>
+						<!--<a href="file:///C:/Users/lzeng/Documents/GitHub/Netflix4Travel/DB/templates/Testing%20Page.html#" class = "btn btn-primary btn-lg" id = 'btn-custom'>Continue >>></a>-->
+						<br><br><br>
+						<div class = 'row'>
 
-				<div class="col-md-4 px-1 location-image">
-		          <h2>{{ locations[0].location_name }}</h2>
-		          <!--<img src="../static/SF Photo.jpg" id = "{{ locations[0].location_name }}" onclick = "selectLocation(this);" />-->
-		          <img src="../static/{{ locations[0].location_name }}.jpg" id = "{{ locations[0].location_name }}" onclick = "selectLocation(this);" />
+							<div class="col-md-4 px-1 location-image">
+								<h2>{{ locations[0].location_name }}</h2>
+								<!--<img src="../static/SF Photo.jpg" id = "{{ locations[0].location_name }}" onclick = "selectLocation(this);" />-->
+								<img src="../static/{{ locations[0].location_name }}.jpg" id = "{{ locations[0].location_name }}" onclick = "selectLocation(this);" />
+							</div>
+
+							<div class="col-md-4 px-1 location-image">
+								<h2>{{ locations[1].location_name }}</h2>
+								<img src="../static/{{ locations[1].location_name }}.jpg" id = "{{ locations[1].location_name }}" onclick = "selectLocation(this);" />
+							</div>
+
+							<div class="col-md-4 px-1 location-image">
+								<h2>{{ locations[2].location_name }}</h2>
+								<img src="../static/{{ locations[2].location_name }}.jpg" id = "{{ locations[2].location_name }}" onclick = "selectLocation(this);" />
+							</div>
+						</div>
+
+						<div class = 'row'><br></div>
+
+						<div class = 'row'>
+
+							<div class="col-md-4 px-1 location-image">
+								<h2>{{ locations[3].location_name }}</h2>
+								<img src="../static/{{ locations[3].location_name }}.jpg" id = "{{ locations[3].location_name }}" onclick = "selectLocation(this);" />
+							</div>
+
+							<div class="col-md-4 px-1 location-image">
+								<h2>{{ locations[4].location_name }}</h2>
+								<img src="../static/{{ locations[4].location_name }}.jpg" id = "{{ locations[4].location_name }}" onclick = "selectLocation(this);" />
+							</div>
+
+							<div class="col-md-4 px-1 location-image">
+								<h2>{{ locations[5].location_name }}</h2>
+								<img src="../static/{{ locations[5].location_name }}.jpg" id = "{{ locations[5].location_name }}" onclick = "selectLocation(this);" />
+							</div>
+						</div>
+					</div>
 				</div>
-
-		        <div class="col-md-4 px-1 location-image">
-		          <h2>{{ locations[1].location_name }}</h2>
-		          <img src="../static/{{ locations[1].location_name }}.jpg" id = "{{ locations[1].location_name }}" onclick = "selectLocation(this);" />
-		       </div>
-
-		        <div class="col-md-4 px-1 location-image">
-		          <h2>{{ locations[2].location_name }}</h2>
-		          <img src="../static/{{ locations[2].location_name }}.jpg" id = "{{ locations[2].location_name }}" onclick = "selectLocation(this);" />
-		        </div>
-		    </div>
-
-		    <div class = 'row'><br></div>
-
-			<div class = 'row'>
-
-				<div class="col-md-4 px-1 location-image">
-		          <h2>{{ locations[3].location_name }}</h2>
-		          <img src="../static/{{ locations[3].location_name }}.jpg" id = "{{ locations[3].location_name }}" onclick = "selectLocation(this);" />
-				</div>
-
-		        <div class="col-md-4 px-1 location-image">
-		          <h2>{{ locations[4].location_name }}</h2>
-		          <img src="../static/{{ locations[4].location_name }}.jpg" id = "{{ locations[4].location_name }}" onclick = "selectLocation(this);" />
-		       </div>
-
-		        <div class="col-md-4 px-1 location-image">
-		          <h2>{{ locations[5].location_name }}</h2>
-		          <img src="../static/{{ locations[5].location_name }}.jpg" id = "{{ locations[5].location_name }}" onclick = "selectLocation(this);" />
-		        </div>
-			</div>
-		</div>
-	</div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
-</html>
+				<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+				<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+			</body>
+			</html>
