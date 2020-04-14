@@ -1,79 +1,122 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel='stylesheet' href = "../static/styles/bootstrap.min.css">
-    <link rel='stylesheet' href = "../static/styles/test.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Nunito|Oswald&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel='stylesheet' href = "../static/styles/bootstrap.min.css">
+  <link rel='stylesheet' href = "../static/styles/test.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Nunito|Oswald&display=swap" rel="stylesheet">
 
-    <title>Your Recommendation!</title>
-
-        <style> 
-        /* Modify the background color */ 
-
-        .navbar-custom { 
-            background-color: #E50914; 
-            
-        } 
-        
-        .wrapper{
-            background-image: url("../static/{{ recommended_loc }}.jpg");
-        }
-
-          
-    </style> 
-        
+  <!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
+  <title>Your Recommendation!</title>
+
+  <style> 
+    /* Modify the background color */ 
+
+    .navbar-custom { 
+      background-color: #E50914; 
+
+    } 
+
+    .wrapper{
+      background-image: url("../static/{{ recommended_loc }}.jpg");
+    }
+
+
+    .fa{
+      font-size: 100px;
+    }
+  </style> 
+
+  <script type="text/javascript">
+
+    function togglethumbs(x) {
+      x.classList.toggle("fa-thumbs-down");
+      
+      if x.classList.contains("fa-thumbs-down") {
+        liked = 0;
+      } else {
+
+        liked = 1;
+      }
+    };
+
+  </script>
+
+<script type="text/javascript">
+  
+    window.onbeforeunload = function(e) {
+      return "Sure you want to leave?";
+    };
+</script>
 
 
 
-  </head>
-  <body>
+</head>
+<body>
 
-    <div class = 'wrapper .bg-cover'>
-      <div class= "rec-background">
+  <div class = 'wrapper .bg-cover'>
+    <div class= "rec-background">
       <nav class="navbar navbar-expand-sm navbar-custom">
         <a class="navbar-brand" href="/">Netflix4Travel</a>
-      <!-- Links -->
+        <!-- Links -->
 
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-          </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
 
       </nav>      
       <div class="container-fluid py-5">
         <header>
-        <h1 id = "recommendation-loc">{{ recommended_loc }}</h1>
-        <p id = "match-text">95% Match</p>
+          <h1 id = "recommendation-loc">{{ recommended_loc }}</h1>
+          <p id = "match-text">95% Match</p>
         </header>
       </div>
 
       <div class="container-fluid recommendation-block-text">
-        <p>Text Description about the chosen location...
-        but this is going on and on</p>
+        <p>We think you will love {{ recommended_loc }}, {{ instance_user_name }}! </p>
+      </div>
+      <br>
+
+      <div class="container-fluid recommendation-block-text">
+        <p>How do you like your recommendation?</p>
+        <div class = 'thump'>
+
+          <!-- Use an element to toggle between a like/dislike icon -->
+          <form id = 'thump'>  
+            <input type='hidden' id= 'thump_result'  value='1' />
+            <i onclick="togglethumbs(this)" value = '1' class="fa fa-thumbs-up"></i>
+          </form>
+        </div>
       </div>
 
-</div>
-      </div>
+
+
+
     </div>
+  </div>
+</div>
 
-  </body>
+</body>
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
 </body>
 
 

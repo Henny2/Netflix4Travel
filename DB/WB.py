@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from flask import Flask, request, jsonify, Response, render_template
+from flask import Flask, request, jsonify, Response, render_template, session
 import json
 import mysql.connector
 from flask_sqlalchemy import SQLAlchemy
@@ -8,6 +8,8 @@ from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from joblib import dump, load 
 import re
+import time
+import csv
 
 #from flask_cors import CORS, cross_origin
 
@@ -69,7 +71,31 @@ def get_model_input(ratings_df):
     
     return ratings_df.apply(lambda x: (x['username'], x['location'], x['rating']), axis = 1)
     
+def no_input(x):
 
+    if len(x) == 0:
+        return "No Input"
+    else: 
+        return x
+
+# Log user activities at the recommendation page
+def activitylog(timestamp, username, email, phone, selection_1, selection_2, selection_3, neighbor, recommendation):
+    with open('Activity_Log.csv', 'a+', newline = '') as log:
+        fieldnames = ['timestamp','username','email','phone','selection_1','selection_2','selection_3','neighbor','recommendation']
+        writer = csv.DictWriter(log, fieldnames = fieldnames)
+        writer.writerow(
+            {
+            'timestamp': timestamp,
+            'username': username,
+            'email': email,
+            'phone': phone,
+            'selection_1': selection_1,
+            'selection_2': selection_2,
+            'selection_3': selection_3,
+            'neighbor': neighbor,
+            'recommendation': recommendation
+            })
+    print(username + "'s information is logged!")
 
 # specify database configurations
 config = {
@@ -99,6 +125,7 @@ print(connection_str)
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = connection_str
+app.secret_key = 'datax'
 db = SQLAlchemy(app)
 
 @app.route("/")
@@ -107,6 +134,24 @@ def hello():
 
 @app.route("/user_selection", methods = ['POST', 'GET'])
 def user_selection_display():
+    
+    #get user name
+    if request.method == "POST":
+
+        user_info_request = request.form
+        
+        instance_phone = user_info_request['phone']
+        instance_email = user_info_request['email']
+        instance_username = user_info_request['name']
+
+        #Use session to pass values between packages/webpages 
+
+        session['session_name'] = user_info_request['name']
+        session['session_phone'] = user_info_request['phone']
+        session['session_email'] = user_info_request['email']
+
+        print('test_name')
+
 
     locations_list = []
 
@@ -128,17 +173,12 @@ def user_selection_display():
         locations_list.append(locations_dict)
     
     #print(locations_list)
+    #print("in user_selection")
+    #print(instance_username)
     
-    #get user name
-    if request.method == "POST":
+    
 
-        user_name = request.form
-        print("THE NAME IS!!!")
-        print(user_name)
-        print(user_name['name'])
-
-
-    return render_template("user_selection.html", locations = locations_list, user_name = user_name)
+    return render_template("user_selection.html", locations = locations_list, instance_user_name = instance_username)
 
 @app.route("/recommendation")
 def show_recommendation():
@@ -155,9 +195,9 @@ def show_recommendation():
     #print(locations_df)
 
     user_input = locations_df.iloc[:, 0].apply(lambda x: 3.5 if x in input_id else 0)
-    print(user_input)
+    #print(user_input)
     neighbor = closest_neighbor(neighbor_df, user_input)
-    print(neighbor)
+    #print(neighbor)
 
     recs = []
     for item in neighbor_df.columns[1:]:
@@ -165,8 +205,45 @@ def show_recommendation():
 
     rec_df = pd.DataFrame(recs).sort_values(by='est', ascending=False)
     recommendation = rec_df.iloc[0, :]['iid']
+    
+    
 
-    return render_template('recommendation.html', recommended_loc = recommendation)
+
+    # Get all values in this session
+    instance_username = no_input(session.get('session_name', None))
+    instance_email = no_input(session.get('session_email', None))
+    instance_phone = no_input(session.get('session_phone', None))
+    locations_df = session.get('locations_df', None)
+    
+
+    # Store values in csv 
+    
+    timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
+    print('=====Values I have so far:=====')
+    print(timestamp)
+    print(instance_username, instance_phone, instance_email)
+    print('=====Input id : three selection of the user =====')
+    print(input_id)
+    print(input_id[0])
+    print('=====User Input : location id, rating=====')
+    print(user_input)
+    print('=====neighbor=====')
+    print(neighbor)
+    print('=====recommendation=====')
+    print(recommendation)
+
+
+    activitylog(timestamp = timestamp,
+     username = instance_username, 
+     email = instance_email, 
+     phone = instance_phone, 
+     selection_1 = input_id[0], 
+     selection_2 = input_id[1], 
+     selection_3 = input_id[2], 
+     neighbor = neighbor, 
+     recommendation = recommendation)
+
+    return render_template('recommendation.html', recommended_loc = recommendation, instance_user_name = instance_username)
 
 
 
@@ -242,4 +319,9 @@ def display_all_locations():
         'locations.html', locations = locations_list)
     
 if __name__ == "__main__":
+    # Store User information
+    #global instance_username 
+    #global instance_email
+    #global instance_phone
+
     app.run(host="0.0.0.0", debug=True)
