@@ -40,20 +40,15 @@
     function togglethumbs(x) {
       x.classList.toggle("fa-thumbs-down");
       
-      if x.classList.contains("fa-thumbs-down") {
-        liked = 0;
-      } else {
-
-        liked = 1;
       }
-    };
+    ;
 
   </script>
 
 <script type="text/javascript">
   
     window.onbeforeunload = function(e) {
-      return "Sure you want to leave?";
+      return "Don't forget to leave your feedback!";
     };
 </script>
 
@@ -89,14 +84,13 @@
 
       <div class="container-fluid recommendation-block-text">
         <p>How do you like your recommendation?</p>
-        <div class = 'thump'>
-
+        <span class = 'thump'>
           <!-- Use an element to toggle between a like/dislike icon -->
           <form id = 'thump'>  
             <input type='hidden' id= 'thump_result'  value='1' />
             <i onclick="togglethumbs(this)" value = '1' class="fa fa-thumbs-up"></i>
           </form>
-        </div>
+        </span>
       </div>
 
 
