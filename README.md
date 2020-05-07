@@ -48,7 +48,7 @@ Special package required:
 
 ----
 ### Setup to run the restaurant webcrawler
-# Needed packages (might have to be installed before running the code)
+#### Needed packages (might have to be installed before running the code)
 - import requests
 - import pandas as pd
 - import time
@@ -61,7 +61,7 @@ MELVIN
 
 ---
 ### Setup to run the CF scripts
-# Needed packages (might have to be installed before running the code)
+#### Needed packages (might have to be installed before running the code)
 - import numpy as np
 - import pandas as pd
 - import tensorflow as tf
