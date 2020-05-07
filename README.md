@@ -11,7 +11,7 @@ Contributors:
 Don't know where to go for summer vacation or spring break? Let us help you out. Netflix4Travel (name TBD) is a personalized, travel itinerary curator. Give us a small taste of what your fun & adventure preferences and a budget, and we'll set you up with the trip of your dreams! 
 
 ---
-### Enviroment to run the code
+### Enviroment to run website
 1. Set up MariaDB in Docker
 2. Load data in MariaDB
 3. Flask - Python
@@ -45,3 +45,45 @@ Special package required:
 #### 5. Execute WB.py in terminal 
 
 - in termial: python WB.py
+
+----
+### Setup to run the restaurant webcrawler
+# Needed packages (might have to be installed before running the code)
+- import requests
+- import pandas as pd
+- import time
+- import bs4 as bs 
+
+---
+### Setup to run the places in SF webcrwaler
+
+MELVIN
+
+---
+### Setup to run the CF scripts
+# Needed packages (might have to be installed before running the code)
+- import numpy as np
+- import pandas as pd
+- import tensorflow as tf
+- import timeit
+- from sklearn.preprocessing import MinMaxScaler
+- from plotly.offline import init_notebook_mode, plot, iplot
+- import matplotlib.pyplot as plt
+- import plotly.graph_objs as go
+- from surprise import Reader
+- from surprise import Dataset
+- from surprise.model_selection import cross_validate
+- from surprise import NormalPredictor
+- from surprise import KNNBasic
+- from surprise import KNNWithMeans
+- from surprise import KNNWithZScore
+- from surprise import KNNBaseline
+- from surprise import SVD
+- from surprise import BaselineOnly
+- from surprise import SVDpp
+- from surprise import NMF
+- from surprise import SlopeOne
+- from surprise import CoClustering
+- from surprise.accuracy import rmse
+- from surprise import accuracy
+- from surprise.model_selection import train_test_split
