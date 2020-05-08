@@ -53,7 +53,13 @@ Special package required:
 - import pandas as pd
 - import time
 - import bs4 as bs 
-
+---
+### Setup to run the hotel/things to do webcrawler
+#### Needed packages (might have to be installed before running the code)
+- import requests
+- import pandas as pd
+- import bs4 as bs 
+- from IPython.core.display import display, HTML
 ---
 ### Setup to run the places in SF webcrwaler
 
