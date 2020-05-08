@@ -1,14 +1,14 @@
 # Netflix4Travel
 
 Contributors:
-  1. Melvin Ang
+  1. Melvin Ang (https://github.com/melvinang)
   2. Henrieke Baunack
   3. Heqing Huang
   4. Peijie Li 
   5. Wenxi Li
   6. Lance Zeng
 
-Don't know where to go for summer vacation or spring break? Let us help you out. Netflix4Travel (name TBD) is a personalized, travel itinerary curator. Give us a small taste of what your fun & adventure preferences and a budget, and we'll set you up with the trip of your dreams! 
+Don't know where to go for summer vacation or spring break? Let us help you out. Netflix4Travel is a personalized, travel itinerary curator. Give us a small taste of what your fun & adventure preferences and a budget, and we'll set you up with the trip of your dreams! 
 
 ---
 ### Enviroment to run website
@@ -61,9 +61,12 @@ Special package required:
 - import bs4 as bs 
 - from IPython.core.display import display, HTML
 ---
-### Setup to run the places in SF webcrwaler
+### Setup to run the places in SF webcrawler
 
-MELVIN
+- Python Request library (https://requests.readthedocs.io/en/master/)
+- Input the webpage URL to crawl
+- Edit the regex to parse for required information
+- Save csv files to your chosen directory
 
 ---
 ### Setup to run the CF scripts
