@@ -72,6 +72,7 @@ Special package required:
 ---
 ### Setup to run the CF scripts
 #### Needed packages (might have to be installed before running the code)
+- File CF TripAdvisor v2 5 Mar 2020.ipynb
 - import numpy as np
 - import pandas as pd
 - import tensorflow as tf
