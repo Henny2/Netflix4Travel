@@ -64,6 +64,7 @@ Special package required:
 ### Setup to run the places in SF webcrawler
 
 - Python Request library (https://requests.readthedocs.io/en/master/)
+- File WebcrawlerSFv4.py
 - Input the webpage URL to crawl
 - Edit the regex to parse for required information
 - Save csv files to your chosen directory
