@@ -47,22 +47,21 @@ Special package required:
 - in termial: python WB.py
 
 ----
-### Setup to run the restaurant webcrawler
+### Setup to run the restaurant webcrawler (File: TripAdvisorRestaurants.ipynb)
 #### Needed packages (might have to be installed before running the code)
 - import requests
 - import pandas as pd
 - import time
 - import bs4 as bs 
 ---
-### Setup to run the hotel/things to do webcrawler
+### Setup to run the hotel/things to do webcrawler (File: tripadvisor hotel&activity.ipynb)
 #### Needed packages (might have to be installed before running the code)
 - import requests
 - import pandas as pd
 - import bs4 as bs 
 - from IPython.core.display import display, HTML
 ---
-### Setup to run the places in SF webcrawler
-
+### Setup to run the places in SF webcrawler (File: WebcrawlerSFv4.py)
 - Python Request library (https://requests.readthedocs.io/en/master/)
 - File WebcrawlerSFv4.py
 - Input the webpage URL to crawl
@@ -70,9 +69,8 @@ Special package required:
 - Save csv files to your chosen directory
 
 ---
-### Setup to run the CF scripts
+### Setup to run the CF scripts (Files: CF TripAdvisor v2 5 Mar 2020.ipynb, CF Restaurants.ipynb)
 #### Needed packages (might have to be installed before running the code)
-- File CF TripAdvisor v2 5 Mar 2020.ipynb
 - import numpy as np
 - import pandas as pd
 - import tensorflow as tf
