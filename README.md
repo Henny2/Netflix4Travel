@@ -71,6 +71,7 @@ Special package required:
 ---
 ### Setup to run the CF scripts (Files: CF TripAdvisor v2 5 Mar 2020.ipynb, CF Restaurants.ipynb)
 #### Needed packages (might have to be installed before running the code)
+- df_Combined.csv
 - import numpy as np
 - import pandas as pd
 - import tensorflow as tf
